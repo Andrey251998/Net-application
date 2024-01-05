@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Space_App_ASP_MVC.props" />
+</Project>

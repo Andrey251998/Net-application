@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<Space_App_ASP_MVC.Models.Orders>;
+@{
+    Layout = "_Layout";
+
+    
+}
+
+<table>
+            <tr>
+            <th>Заказчик</th>
+             <th>Дата заказа</th>
+              <th>Стоимость</th>  
+              <th>Действие</th>
+            </tr>
+
+            
+           @foreach (var user in Model)
+            {
+            <tr>
+                <td>@user.title </td>
+                <td>@user.Date</td>
+                <td>@user.Price</td>
+                
+                <td>
+                <form asp-action="order_delete" asp-route-id="@user.Id" method="post">     
+                    <button type="submit"> Удалить </button>                   
+                </form>
+                </td>
+                <td>
+                    <a asp-action="Edit_order" asp-controller="Home" asp-route-id="@user.Id">
+                    <button type="submit"> Изменить </button> 
+                    </a>
+                </td>
+            </tr>
+
+            }
+
+        </table>
+        <div>
+           <a href="create_order"><button type="submit">Добавить</button>
+           
+
+               
+           </a>
+            
+        </div>
+        
+

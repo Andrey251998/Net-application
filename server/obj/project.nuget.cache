@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "SNq6PrLqBc6zauXUKcj9hwT9qsr/UwnRkQ+EpfMqGtZz9/Kmt/6WjPXGNQyYs9tPGZrIW7xRYT/RjHRW4Q797A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kotia\\source\\repos\\server\\server\\server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kotia\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
+    "C:\\Users\\kotia\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\kotia\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

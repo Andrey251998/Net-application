@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Space_App_ASP_MVC.Models.Users>
+
+@{
+    Layout = "_Layout";
+}
+
+
+<div>
+    
+    
+    
+      <table>
+            <tr>
+            <th>Фамилия</th>
+             <th>Имя</th>
+              <th>Отчество</th>
+               <th>Дата Рождения</th>
+               <th>Действие</th>
+               <th></th>
+            </tr>
+           @foreach (var us in Model)
+            {
+            <tr>
+                <td>@us.LastName </td>
+                <td><p>@us.Name</p></td>
+                <td><p>@us.MidName</p></td>
+                <td><p>@Html.DisplayFor(p=>us.Date_Birthday, "{0:d MMM yyyy}")</td>
+                    <td>
+                <form asp-action="delete" asp-route-id="@us.Id" method="post">     
+                    <button type="submit"> Удалить </button>                   
+                </form>
+                </td>
+                <td>
+                <a asp-action="edit" asp-controller="Home" asp-route-id="@us.Id">
+                    <button type="submit"> Изменить </button> 
+                    </a>
+                </td>
+            </tr>
+            }
+        </table>
+        <div>
+           <a href="create"><button  type="submit">Создать</button></a>
+        </div>
+    
+    
+</div>

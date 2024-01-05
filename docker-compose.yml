@@ -1,0 +1,31 @@
+version: "3.4"
+networks:
+  asp_dock:
+    
+services:
+  app: 
+    container_name: asp-net
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    networks:
+      - asp_dock
+    depends_on:
+      - usersdb
+  usersdb:
+    container_name: space
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - MSSQL_SA_PASSWORD=2Secure*Password2
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+    networks:
+      - asp_dock
+  rabbitmq:
+    image: rabbitmq:3.9.29-management
+    ports:
+      - 15672:15672   
+#     

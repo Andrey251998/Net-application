@@ -1,0 +1,29 @@
+﻿
+@model Space_App_ASP_MVC.Models.Users
+@{
+        Layout = "_Layout";
+}
+
+<form id="form" asp-action="create" asp-controller="Home">
+    <p>
+    <label  asp-for="Name">Имя</label> <br />
+    <input  type="text" asp-for="Name" />
+    </p>
+    
+    <p>
+    <label asp-for="LastName">Фамилия</label> <br />
+    <input type="text" asp-for="LastName" />
+    </p>
+    <p>
+    <label asp-for="MidName">Отчество</label> <br />
+    <input type="text" asp-for="MidName" />
+
+    </p>
+    <p>
+    <label asp-for="Date_Birthday">Дата Рождения</label> <br />
+    <input type="date" min="1920-04-01" max="2012-01-01"  asp-for="Date_Birthday" />
+    </p>
+    <p>
+    <input   type="submit" value="Сохранить" />
+    </p>
+</form>

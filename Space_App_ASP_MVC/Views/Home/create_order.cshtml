@@ -1,0 +1,24 @@
+﻿
+@model Space_App_ASP_MVC.Models.Orders
+@{
+    Layout = "_Layout";
+}
+<form  asp-action="create_order" asp-controller="Home">
+    <p>
+    <label asp-for="title">Пользователь</label> <br />
+    <select required asp-for="title" asp-items="@ViewBag.use"></select>
+    </p>
+   <p>
+    <label asp-for="Date">Дата заказа</label> <br />
+    <input type="date" min="2005-01-01" max="2060-01-01"  asp-for="Date" />
+    </p> 
+    <p>
+    <label asp-for="Price">Цена</label> <br />
+    <input type="number" min="0" asp-for="Price" />
+    </p> 
+    
+    <p>
+    <input type="submit" value="Сохранить" />
+    </p>
+    
+</form>
