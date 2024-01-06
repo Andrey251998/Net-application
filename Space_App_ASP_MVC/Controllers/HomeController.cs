@@ -7,6 +7,12 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Mail;
 using AutoMapper;
+using System.Data.Entity;
+using spaceDAL.Entities;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using spaceDAL.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 
 namespace Space_App_ASP_MVC.Controllers
 {
@@ -33,31 +39,55 @@ namespace Space_App_ASP_MVC.Controllers
         }
 
         IOrderService _context;
-
+        public Application_context _application;
+        
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IOrderService context)
+        public HomeController(ILogger<HomeController> logger, IOrderService context,Application_context application)
         {
 
             _context = context;
+            _application = application;
             _logger = logger;
+           
+           
+        }
+        
+        
+        public IActionResult Index()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public  IActionResult Index(LoginClient loginClient, RegisterClient RegisterClient)
+        {
+            if(ModelState.IsValid)
+            {
+                Models.Client cl =  _application.Clients.FirstOrDefault(u => u.Login == loginClient.Login && u.Password == loginClient.Password);
+                if (cl != null)
+                {
+                    return RedirectToAction("users", "Home");
+                }
+                
+                
+            }
+            if (ModelState.IsValid)
+            {
+                Models.Client user = _application.Clients.FirstOrDefault(u => u.Email == RegisterClient.Email);
+                if (user == null)
+                {
+
+                    _application.Clients.Add(new Models.Client { Email = RegisterClient.Email, Password = RegisterClient.Password, Login = RegisterClient.Login });
+                    _application.SaveChangesAsync();
+
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View();
         }
 
-        //public IActionResult Index()
-        //{
-
-        //    foreach (var user in users)
-        //    {
-        //        DateTime date = DateTime.Parse(user.Date);
-        //        if (date.ToString("d") == Convert.ToString(DateTime.Today.ToString("d")))
-        //        {
-        //            RecurringJob.AddOrUpdate(()=>MailMessage_Send("a.knyazev33@gmail.com","Заказ",$"На сегодня есть заказ клиента {user.title}"),Cron.Minutely);
-        //        }
-
-        //    }
-        //    return View();
-        //}
         //Работа с users/////////////////////////
         public IActionResult users()
         {
@@ -77,7 +107,7 @@ namespace Space_App_ASP_MVC.Controllers
         [HttpPost]
         public IActionResult create(Users user)
         {
-            var users = new User { Name = user.Name, LastName = user.LastName, MidName = user.MidName, Date_Birthday = user.Date_Birthday };
+            var users = new spaceBLL.UserDTO.User { Name = user.Name, LastName = user.LastName, MidName = user.MidName, Date_Birthday = user.Date_Birthday };
             _context.addUser(users);
 
             return RedirectToAction("create");

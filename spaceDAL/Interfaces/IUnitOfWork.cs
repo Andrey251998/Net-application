@@ -12,6 +12,8 @@ namespace spaceDAL.Interfaces
         IRepository<User> users { get; }
         IRepository<Order> orders { get; }
 
+        IClientRepository<Client> clients { get; }
+
         void save();
     }
 }

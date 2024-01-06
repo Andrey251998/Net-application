@@ -108,3 +108,40 @@ td {
 .x2716:hover {
     cursor: pointer;
 }
+/*.switch {
+    position: absolute;
+    left: 50% ;
+    transform: translate(-50% 0);
+    margin:-6px;
+    
+}
+.reg {
+    padding: 12px;
+    border: 0;
+    background-color: cadetblue;
+    border-radius: 12px;
+    font-family: cursive;
+    font-size: 16px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.auth {
+    padding: 12px;
+    border: 0;
+    background-color: White;
+    border-radius: 12px;
+    font-family: cursive;
+    font-size: 16px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.box1 {
+    position: absolute;
+    left: 50%;
+    background-color: cadetblue;
+    width: 350px;
+    height:192px;
+    padding-top: 12px;
+    padding-left:12px;
+    transform:translate(-50% 15%);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 12px;*/
+}

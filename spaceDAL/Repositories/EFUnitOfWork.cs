@@ -14,6 +14,7 @@ namespace spaceDAL.Repositories
         private Application_Context db;
         private OrderRepository orderRepository;
         private UserRepository userRepository;
+        private ClientRepository clientRepository;
 
         public EFUnitOfWork()
         {
@@ -40,6 +41,18 @@ namespace spaceDAL.Repositories
                     orderRepository = new OrderRepository(db);
 
                 return orderRepository;
+            }
+        }
+
+        public IClientRepository<Client> clients
+        {
+            get
+            {
+                if (clientRepository == null)
+
+                    clientRepository = new ClientRepository(db);
+
+                return clientRepository;
             }
         }
 

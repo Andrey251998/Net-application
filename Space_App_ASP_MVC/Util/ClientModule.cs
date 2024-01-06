@@ -4,12 +4,12 @@ using spaceBLL.Services;
 
 namespace Space_App_ASP_MVC.Util
 {
-    public class UserModule:NinjectModule
+    public class ClientModule:NinjectModule
     {
         public override void Load()
         {
-            Bind<IOrderService>().To<UserService>();
-            
+            Bind<IClient>().To<ClientService>();
+
         }
     }
 }

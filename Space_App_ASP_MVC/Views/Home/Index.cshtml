@@ -1,7 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Space_App_ASP_MVC.Models.Client
+@{
     Layout = "_Layout";
 }
 
+   
+
+
+<div id="switch">
+    <button id="auth" onclick="Show_log()">Авторизация</button>
+    <button id="reg" onclick="Show_reg()">Регистрация</button>
+</div>
+
+<form id="box1" asp-action="Index" asp-controller="Home">
+    
+    <label id="font_l1" asp-for="Login">Логин</label>
+    <input id="in_l1" asp-for="Login" type="text">
+    <br>
+    <label id="font_p1" asp-for="Password">Пароль</label>
+    <input id="in_p1" asp-for="Password" type="password">
+    <button id="button1" type="submit">Войти</button>
+    
+</form>
+
+<form id="box" asp-action="Index" asp-controller="Home">
+    
+   <label id="font_e" asp-for="Email">Почта</label>
+     <input id="in_e" type="email" asp-for="Email">
+    <br>
+    <label id="font_l" asp-for="Login">Логин</label>
+    <input id="in_l" asp-for="Login" type="text">
+    <br>
+    <label id="font_p" asp-for="Password">Пароль</label>
+    <input id="in_p" asp-for="Password" type="password">
+    <br>
+    <input id="button" type="submit" value="Регистрация" />
+    
+</form>
 
 

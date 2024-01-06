@@ -15,6 +15,7 @@ namespace spaceBLL.Infrastructure
         public override void Load()
         {
             Bind<IUnitOfWork>().To<EFUnitOfWork>().WithConstructorArgument(connectionString);
+            
         }
     }
 }

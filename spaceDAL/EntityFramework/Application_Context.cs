@@ -9,6 +9,7 @@ namespace spaceDAL.EntityFramework
         public System.Data.Entity.DbSet<User> users { get; set; }
 
         public System.Data.Entity.DbSet<Order> orders { get; set; }
+        public System.Data.Entity.DbSet<Client> clients { get; set; }
 
         
         public Application_Context(string ConnectionString) : base(ConnectionString)
